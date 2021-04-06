@@ -1,0 +1,37 @@
+
+<ion-card color="tertiary">
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Registro</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item color="tertiary">
+      <ion-label position="floating"> <strong>Nome</strong> </ion-label>
+      <ion-input type="nome" placeholder="Informe o seu nome"></ion-input>
+    </ion-item>
+    <ion-item color="tertiary">
+      <ion-label position="floating"> <strong>Sobrenome</strong> </ion-label>
+      <ion-input type="sobrenome" placeholder="Informe o seu sobrenome"></ion-input>
+    </ion-item>
+    <ion-item color="tertiary">
+      <ion-label position="floating"> <strong>Email</strong> </ion-label>
+      <ion-input type="email" placeholder="Informe o seu e-mail"></ion-input>
+    </ion-item>
+
+    <ion-item color="tertiary">
+      <ion-label position="floating"> <strong>Senha</strong> </ion-label>
+      <ion-input type="password" placeholder="Informe a sua senha"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" [routerLink]="['/home']" shape="round" color="success" class="ion-margin-top">
+      Registrar
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
+<ion-content>
+  <ion-button expand="full" fill="clear" color="tertiary" [routerLink]="['/login']">
+    Já possui uma conta? Faça login agora!
+  </ion-button>
+</ion-content>
+

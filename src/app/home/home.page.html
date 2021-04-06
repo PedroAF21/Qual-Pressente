@@ -1,0 +1,50 @@
+<ion-list class="ion-justify-content-center">
+  <ion-list-header>
+    <ion-label id="titulo" class="ion-text-center">
+      Qual Presente?
+    </ion-label>
+  </ion-list-header>
+
+  <ion-item class="ion-no-border">
+    <ion-label position="stacked">Ocasião</ion-label>
+    <ion-select placeholder="Selecione um">
+      <ion-select-option value="aniversario">Aniversário</ion-select-option>
+      <ion-select-option value="namorados">Dia dos namorados</ion-select-option>
+      <ion-select-option value="casamento">Casamento</ion-select-option>
+      <ion-select-option value="natal">Natal</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Sexo</ion-label>
+    <ion-select placeholder="Selecione um">
+      <ion-select-option value="f">Feminino</ion-select-option>
+      <ion-select-option value="m">Masculino</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Idade</ion-label>
+    <ion-select placeholder="Selecione um">
+      <ion-select-option value="1-5">1 a 5</ion-select-option>
+      <ion-select-option value="5-10">5 a 10</ion-select-option>
+      <ion-select-option value="10-18">10 a 18</ion-select-option>
+      <ion-select-option value="18-30">18 a 30</ion-select-option>
+      <ion-select-option value="30+">Mais de 30</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Valor</ion-label>
+    <ion-select placeholder="Selecione um">
+      <ion-select-option value="50-100">R$50 a R$100</ion-select-option>
+      <ion-select-option value="100-200">R$100 a R$200</ion-select-option>
+      <ion-select-option value="200-500">R$200 a R$500</ion-select-option>
+      <ion-select-option value="500-1000">R$500 a R$1000</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" [routerLink]="['/resultado']" shape="round" color="success" class="ion-margin">
+    Procurar
+  </ion-button>
+</ion-list>

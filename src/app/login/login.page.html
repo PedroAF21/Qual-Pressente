@@ -1,0 +1,29 @@
+
+  <ion-card color="tertiary">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Login</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item color="tertiary">
+        <ion-label position="floating"> <strong>Email</strong> </ion-label>
+        <ion-input type="email" placeholder="Informe o seu e-mail"></ion-input>
+      </ion-item>
+
+      <ion-item color="tertiary">
+        <ion-label position="floating"> <strong>Senha</strong> </ion-label>
+        <ion-input type="password" placeholder="Informe a sua senha"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" [routerLink]="['/home']" shape="round" color="success" class="ion-margin-top">
+        Login
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-content>
+    <ion-button expand="full" fill="clear" color="tertiary" [routerLink]="['/signin']">
+      Não possuo cadastro.
+    </ion-button>
+  </ion-content>
+
