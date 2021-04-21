@@ -9,7 +9,8 @@ export class ProfileService {
   public profile: Array<Profile> = [
     {
       id: 1,
-      nome: 'Pedro de Andrade Franco',
+      nome: 'Pedro',
+      sobrenome: 'Franco',
       email: 'pedroaf21@gmail.com',
       password: '123456',
     },

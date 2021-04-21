@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileService} from '../profile.service';
 import {Profile} from '../models/profile.model';
+
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -15,7 +16,13 @@ export class ProfilePage implements OnInit {
 
   public profileLogado: Profile;
 
-  public profileEdit: Profile;
+  public profileEdit: Profile = {
+    id: null,
+    nome: '',
+    sobrenome: '',
+    email: '',
+    password: ''
+  };
 
   constructor(private profileService: ProfileService,
               private rotaAtiva: ActivatedRoute) { }
@@ -34,6 +41,7 @@ export class ProfilePage implements OnInit {
 
     this.profileEdit.id = this.profileLogado.id;
     this.profileEdit.nome = this.profileLogado.nome;
+    this.profileEdit.sobrenome = this.profileLogado.sobrenome;
     this.profileEdit.email = this.profileLogado.email;
     this.profileEdit.password = this.profileLogado.password;
 
