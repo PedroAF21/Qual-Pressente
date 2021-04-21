@@ -1,9 +1,85 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+    <!-- Card de exibição dos dados-->
+  <ion-card *ngIf="!edicao">
+    <ion-card-header color="tertiary">
+      <ion-card-title class="ion-text-center"> <strong>Perfil</strong> </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked"> <strong>Nome:</strong>  </ion-label>
+        <ion-input type="text" [ngModel]="profileLogado.nome" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked"> <strong>Email:</strong>  </ion-label>
+        <ion-input type="text" [ngModel]="profileLogado.email" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked"> <strong>Password:</strong> </ion-label>
+        <ion-input type="password" disabled="true" [ngModel]="profileLogado.password"></ion-input>
+      </ion-item>
+    </ion-card-content>
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="block" strong="true" color="warning" (click)="habilitarEdicao()">
+            Editar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
+  <!-- Card de edição dos dados-->
+  <ion-card *ngIf="edicao">
+    <ion-card-header color="tertiary">
+      <ion-card-title class="ion-text-center"> <strong> Perfil</strong> </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="stacked"> <strong>Nome:</strong>  </ion-label>
+        <ion-input type="text" [ngModel]="profileVazio.nome" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked"> <strong>Email:</strong>  </ion-label>
+        <ion-input type="text" [ngModel]="profileVazio.email" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked"> <strong>Password:</strong> </ion-label>
+        <ion-input type="password" disabled="true" [ngModel]="profileVazio.password"></ion-input>
+      </ion-item>
+
+    </ion-card-content>
+
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="block" strong="true" color="medium" (click)="cancelarEdicao()">
+            Cancelar
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-button expand="block" strong="true" color="success" (click)="salvar()">
+            Salvar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </ion-card>
+
 
 </ion-content>

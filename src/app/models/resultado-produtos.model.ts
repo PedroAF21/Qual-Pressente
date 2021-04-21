@@ -4,4 +4,5 @@ export interface Produto {
   preco: number;
   imgPath: string;
   url: string;
+  fav: boolean;
 }

@@ -21,7 +21,7 @@
       <ion-title class="ion-text-center">
         <a [routerLink]="['/home']"><img src="assets/icon/giftbox.png" alt="Qual Presente?" id="icon"></a>
       </ion-title>
-      <ion-button slot="end" color="secondary" [routerLink]="['/profile']">
+      <ion-button slot="end" color="secondary" [routerLink]="['/profile/{{profile.id}}']">
         <ion-icon name="person-circle-outline" size="large"></ion-icon>
       </ion-button>
     </ion-toolbar>

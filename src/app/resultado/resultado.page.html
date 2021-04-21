@@ -1,11 +1,11 @@
 <ion-content>
-  <ion-list>
+  <ion-list lines="none">
     <ion-list-header color="tertiary">
       <h3>Escolha seu presente</h3>
     </ion-list-header>
 
     <ion-item color="tertiary" *ngFor="let produtos of listaProdutos"
-              routerLink="/servico-detalhes/{{produtos.id}}">
+              routerLink="/produto-detalhes/{{produtos.id}}">
       <ion-avatar slot="start">
         <img [src]="produtos.imgPath">
       </ion-avatar>
@@ -14,8 +14,8 @@
         <h2>{{produtos.nome}}</h2>
         <h3>R$ {{produtos.preco}}</h3>
       </ion-label>
-      <ion-button color="success" [href]="produtos.url">Comprar</ion-button>
-      <ion-icon size="small" name="star-outline"></ion-icon>
+      <ion-icon name="star-outline" *ngIf="!produtos.fav"></ion-icon>
+      <ion-icon name="star" *ngIf="produtos.fav"></ion-icon>
     </ion-item>
 
   </ion-list>
