@@ -13,6 +13,17 @@ export class ResultadoPage implements OnInit {
   constructor(private resultadoProduto: ResultadoProdutosService) { }
 
   ngOnInit() {
-    this.listaProdutos = this.resultadoProduto.getAllProdutos();
+    this.resultadoProduto.getAllProdutos().subscribe((produtos) => {
+      this.listaProdutos = produtos.map( (obj) => {
+        return {
+          id: obj.payload.doc.id,
+          nome: obj.payload.doc.data()['nome'],
+          preco: obj.payload.doc.data()['preco'],
+          imgPath: obj.payload.doc.data()['imgPath'],
+          url: obj.payload.doc.data()['url'],
+          fav: obj.payload.doc.data()['fav'],
+        };
+      });
+    });
   }
 }
