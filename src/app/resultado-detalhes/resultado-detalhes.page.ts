@@ -10,38 +10,36 @@ import {Produto} from '../models/resultado-produtos.model';
 })
 export class ResultadoDetalhesPage implements OnInit {
 
-  constructor() {}
+  public produto: Produto =  {
+    id: '',
+    nome: '',
+    preco: null,
+    imgPath: '',
+    url: '',
+    fav: null,
+  };
+
+  constructor(private router: Router,
+              private rotaAtiva: ActivatedRoute,
+              private produtoService: ResultadoProdutosService) {
+  }
 
   ngOnInit() {
-
+    const id: string = this.rotaAtiva.snapshot.paramMap.get('id');
+    this.produtoService.getProdutoById(id).then( (produto) => {
+      this.produto = produto;
+    });
   }
-  // public codigo = '';
-  //
-  // public produto: Produto =  {
-  //   id: null,
-  //   nome: '',
-  //   preco: null,
-  //   imgPath: '',
-  //   url: '',
-  //   fav: null,
-  // };
-  //
-  // constructor(private router: Router,
-  //             private rotaAtiva: ActivatedRoute,
-  //             private produtoService: ResultadoProdutosService) {
-  // }
-  //
-  // ngOnInit() {
-  //   let id = 1;
-  //   this.codigo = this.rotaAtiva.snapshot.paramMap.get('id');
-  //   id = Number(this.codigo);
-  //   this.produto = this.produtoService.getProdutoById(id);
-  // }
-  //
-  // public produtoFavorito(e) {
-  //   (e.currentTarget.checked) ? this.produto.fav = true : this.produto.fav = false;
-  //   this.produtoService.editarProdutoFavorito(this.produto);
-  //   this.router.navigate(['/resultado']);
-  // }
+
+  public produtoFavorito(e) {
+    (e.currentTarget.checked) ? this.produto.fav = true : this.produto.fav = false;
+    this.produtoService.editarProdutoFavorito(this.produto).then(
+      (respota) => {
+        this.router.navigate(['/resultado']);
+      }
+    ).catch((erro) => {
+      console.error('Editar erro: ', erro);
+    });
+  }
 
 }
