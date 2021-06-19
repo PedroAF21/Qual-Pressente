@@ -4,4 +4,7 @@ export interface Profile {
   sobrenome: string;
   email: string;
   password: string;
+  nomeFotoEnviada: string;
+  urlFotoCapturada: string;
+  urlFotoExibir: string;
 }

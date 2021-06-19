@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardsService } from 'src/app/guards/auth-guards.service';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
   {
     path: '',
     redirectTo: 'login',
@@ -20,24 +17,34 @@ const routes: Routes = [
     loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
   },
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuardsService]
+  },
+  {
     path: 'profile/:id',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuardsService]
   },
   {
     path: 'produtos-salvos',
-    loadChildren: () => import('./produtos-salvos/produtos-salvos.module').then( m => m.ProdutosSalvosPageModule)
+    loadChildren: () => import('./produtos-salvos/produtos-salvos.module').then( m => m.ProdutosSalvosPageModule),
+    canActivate: [AuthGuardsService]
   },
   {
     path: 'sobrenos',
-    loadChildren: () => import('./sobrenos/sobrenos.module').then( m => m.SobrenosPageModule)
+    loadChildren: () => import('./sobrenos/sobrenos.module').then( m => m.SobrenosPageModule),
+    canActivate: [AuthGuardsService]
   },
   {
     path: 'resultado',
-    loadChildren: () => import('./resultado/resultado.module').then( m => m.ResultadoPageModule)
+    loadChildren: () => import('./resultado/resultado.module').then( m => m.ResultadoPageModule),
+    canActivate: [AuthGuardsService]
   },
   {
     path: 'produto-detalhes/:id',
-    loadChildren: () => import('./resultado-detalhes/resultado-detalhes.module').then( m => m.ResultadoDetalhesPageModule)
+    loadChildren: () => import('./resultado-detalhes/resultado-detalhes.module').then( m => m.ResultadoDetalhesPageModule),
+    canActivate: [AuthGuardsService]
   },
 ];
 
